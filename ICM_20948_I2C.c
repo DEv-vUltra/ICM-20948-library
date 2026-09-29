@@ -544,12 +544,12 @@ void ICM_ProcessRaw(ICM_Handle_t *h)
 
 void ICM_CheckTimeout(ICM_Handle_t *h)
 {
-    const uint32_t elapsed = HAL_GetTick() - h->dma.start_tick;
-
     if ((!ICM_IsHandleValid(h)) || (h->status.state != ICM_STATE_DMA_BUSY))
     {
         return;
     }
+    const uint32_t elapsed = HAL_GetTick() - h->dma.start_tick;
+    
     if (elapsed >= ICM_DMA_TIMEOUT_MS)
     {
         ICM_SetFault(h, ICM_FAULT_DMA_TIMEOUT | ICM_FAULT_DMA);
