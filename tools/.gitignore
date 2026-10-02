@@ -1,0 +1,12 @@
+# Recorded data (can be large and is specific to one sensor/session)
+*.csv
+*.meta.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Figures saved with --save-prefix
+*_allan.png
+*_gravity.png
+*_delay.png
